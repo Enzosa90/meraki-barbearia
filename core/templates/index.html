@@ -1,5 +1,51 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<h1>Index</h1>
+<div class="servicos-content">
+    <h1>Serviços</h1>
+    <div class="cards-content">
+        {% for servico in servicos %}
+        <div class="servico-card">
+            <div class="card-img">
+                <img src="{{servico.imagem.url}}" alt="logo-servico">
+            </div>
+            <div class="card-body">
+                <h4>{{servico.nome}}</h4>
+                <p>{{servico.descricao}}</p>
+                <p>
+                    <i class="bi bi-currency-dollar"></i><span> Preço: R$ {{servico.preco}}</span>
+                    <br>
+                    <i class="bi bi-hourglass-bottom"></i><span> Tempo aprox: {{servico.tempo}} min.</span>
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="agende-content">
+    <div class="agende-text">
+        <h1>Agende <br> seu horário</h1>
+        <p>Aproveite e ja marque <br> seu horário online!</p>
+        <br>
+        <a class="btn-agende" href="">AGENDAR</a>
+    </div>
+
+    <div class="carousel-content">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'img/barb1.jpg' %}" class="d-block w-100" alt="Barbeiro-img" />
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/barb2.jpg' %}" class="d-block w-100" alt="Barbeiro-img" />
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/barb3.jpg' %}" class="d-block w-100" alt="Barbeiro-img" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
